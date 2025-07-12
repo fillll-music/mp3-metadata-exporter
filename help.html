@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Metadata Exporter - User Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #3B82F6;
+            border-bottom: 2px solid #3B82F6;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1F2937;
+            margin-top: 30px;
+        }
+        .step {
+            background: #f8fafc;
+            padding: 15px;
+            border-left: 4px solid #3B82F6;
+            margin: 15px 0;
+        }
+        .tip {
+            background: #fef3c7;
+            padding: 15px;
+            border-left: 4px solid #f59e0b;
+            margin: 15px 0;
+        }
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .feature-list li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>MP3 Metadata Exporter - User Guide</h1>
+    
+    <p><strong>Version 1.0.0</strong></p>
+    
+    <h2>What is MP3 Metadata Exporter?</h2>
+    <p>MP3 Metadata Exporter is a desktop application that extracts ID3 tag metadata from MP3 files and exports it to JSON format. This is useful for creating music library databases, analyzing your music collection, or preparing data for music scheduling applications.</p>
+
+    <h2>Features</h2>
+    <ul class="feature-list">
+        <li>Extract metadata from MP3 files (artist, album, title, genre, year, duration)</li>
+        <li>Preview metadata with configurable sample sizes (1-100 tracks)</li>
+        <li>Export to JSON format with automatic file saving</li>
+        <li>Handle files with missing or incomplete metadata</li>
+        <li>Fallback to filename parsing when tags are missing</li>
+        <li>Progress tracking for large libraries</li>
+        <li>Configurable output directory settings</li>
+        <li>Settings persistence between sessions</li>
+    </ul>
+
+    <h2>How to Use</h2>
+
+    <h3>Step 1: Configure Settings (Optional)</h3>
+    <div class="step">
+        <ol>
+            <li>Click the <strong>gear icon</strong> (⚙️) next to the Export JSON button</li>
+            <li>Set the number of tracks to preview (1-100, default: 10)</li>
+            <li>Choose an output directory for JSON files (optional)</li>
+            <li>Click <strong>Save</strong> to apply your settings</li>
+        </ol>
+    </div>
+
+    <h3>Step 2: Preview Your Library</h3>
+    <div class="step">
+        <ol>
+            <li>Click the <strong>"Preview Library"</strong> button</li>
+            <li>Select the folder containing your MP3 files</li>
+            <li>Wait for the scan to complete (only processes the configured number of tracks)</li>
+            <li>Review the metadata in the preview table</li>
+        </ol>
+    </div>
+
+    <h3>Step 3: Export to JSON</h3>
+    <div class="step">
+        <ol>
+            <li>Click the <strong>"Export JSON"</strong> button</li>
+            <li>If you haven't selected a folder yet, choose the folder containing your MP3 files</li>
+            <li>The app will automatically save the JSON file to your configured output directory</li>
+            <li>Wait for the export to complete (processes all MP3 files in the folder)</li>
+        </ol>
+    </div>
+
+    <h2>Settings</h2>
+    
+    <h3>Tracks to Preview</h3>
+    <p>This setting controls how many tracks are shown in the preview table. The app randomly samples this many tracks from your library for quick previewing. This makes previews fast even for large libraries.</p>
+    
+    <h3>Output Directory</h3>
+    <p>Set your preferred directory for saving JSON export files. If left empty, the app will save the JSON file in the same folder as your MP3 files.</p>
+
+    <h2>Output Format</h2>
+    <p>The exported JSON file contains an array of track objects with the following structure:</p>
+    <pre><code>[
+  {
+    "path": "filename.mp3",
+    "title": "Song Title",
+    "artist": "Artist Name",
+    "album": "Album Name",
+    "genre": ["Rock", "Alternative"],
+    "year": 2020,
+    "duration": 180.5
+  }
+]</code></pre>
+
+    <h2>Tips</h2>
+    <div class="tip">
+        <strong>Large Libraries:</strong> For folders with many MP3 files, the export process may take some time. The progress bar will show you the current status. Preview mode is much faster as it only processes a sample of your files.
+    </div>
+    
+    <div class="tip">
+        <strong>Missing Metadata:</strong> If an MP3 file has missing ID3 tags, the app will attempt to extract information from the filename using common patterns like "Artist - Title" or "Artist - Album - Title".
+    </div>
+    
+    <div class="tip">
+        <strong>File Organization:</strong> For best results, organize your MP3 files in folders by artist or album before exporting.
+    </div>
+
+    <div class="tip">
+        <strong>Settings Persistence:</strong> Your settings are automatically saved and will be remembered the next time you open the app.
+    </div>
+
+    <h2>Supported File Formats</h2>
+    <ul>
+        <li>MP3 files (.mp3)</li>
+        <li>ID3v1 and ID3v2 tags</li>
+    </ul>
+
+    <h2>System Requirements</h2>
+    <ul>
+        <li>Windows 10 or later</li>
+        <li>macOS 10.14 or later</li>
+        <li>Linux (Ubuntu 18.04 or later)</li>
+        <li>Minimum 4GB RAM</li>
+        <li>100MB free disk space</li>
+    </ul>
+
+    <h2>Getting Help</h2>
+    <p>If you need additional help or want to report issues:</p>
+    <ul>
+        <li><strong>Website:</strong> <a href="https://fillll.com">https://fillll.com</a></li>
+        <li><strong>GitHub Issues:</strong> <a href="https://github.com/fillll-music/mp3-metadata-exporter/issues">https://github.com/fillll-music/mp3-metadata-exporter/issues</a></li>
+        <li><strong>Email:</strong> <a href="mailto:dev@fillll.com">dev@fillll.com</a></li>
+    </ul>
+
+    <hr style="margin: 40px 0; border: none; border-top: 1px solid #e5e7eb;">
+    
+    <p style="text-align: center; color: #6b7280; font-size: 0.9em;">
+        © 2025 Fillll. All rights reserved.<br>
+        MP3 Metadata Exporter v1.0.0
+    </p>
+</body>
+</html> 

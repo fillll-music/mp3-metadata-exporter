@@ -1,0 +1,70 @@
+{
+  "name": "mp3-metadata-exporter",
+  "version": "1.0.0",
+  "description": "Extract and export ID3 tag metadata from MP3 files to JSON format",
+  "main": "main.js",
+  "homepage": "https://github.com/fillll-music/mp3-metadata-exporter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fillll-music/mp3-metadata-exporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fillll-music/mp3-metadata-exporter/issues"
+  },
+  "keywords": ["music", "metadata", "mp3", "export", "electron", "desktop", "audio"],
+  "author": "fillll <dev@fillll.com>",
+  "license": "ISC",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "electron-updater": "^6.6.2",
+    "music-metadata": "^11.6.0"
+  },
+  "devDependencies": {
+    "electron": "^25.9.8",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.fillll.mp3-metadata-exporter",
+    "productName": "MP3 Metadata Exporter",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "**/*"
+    ],
+    "extraMetadata": {
+      "main": "main.js"
+    },
+    "compression": "maximum",
+    "asar": false,
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon-win.png",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "mac": {
+      "target": ["dmg", "zip"],
+      "icon": "build/icon.icns",
+      "category": "public.app-category.music",
+      "hardenedRuntime": true
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "icon": "build/icon-linux.png",
+      "category": "Audio"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "fillll-music",
+      "repo": "mp3-metadata-exporter"
+    }
+  }
+}
