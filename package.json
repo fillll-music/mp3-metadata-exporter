@@ -47,7 +47,7 @@
       "main": "main.js"
     },
     "compression": "maximum",
-    "asar": true,
+    "asar": false,
     "win": {
       "target": [
         "nsis",
