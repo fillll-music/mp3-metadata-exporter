@@ -34,8 +34,13 @@ jobs:
       run: |
         node --version
         npm --version
+      shell: bash
+        
+    - name: Debug environment (List files)
+      run: |
         ls -la
         ls -la build/
+      shell: bash
         
     - name: Run tests (if available)
       run: npm test --if-present
@@ -53,7 +58,8 @@ jobs:
       run: |
         echo "Build completed, checking dist directory:"
         ls -la dist/ || echo "No dist directory found"
-        find dist -name "*.exe" -o -name "*.dmg" -o -name "*.AppImage" -o -name "*.deb" -o -name "*.zip" || echo "No build artifacts found"
+        find dist -name "*.exe" -o -name "*.AppImage" -o -name "*.deb" -o -name "*.zip" || echo "No build artifacts found"
+      shell: bash
       
     - name: Upload artifacts (Ubuntu)
       if: matrix.os == 'ubuntu-latest'
