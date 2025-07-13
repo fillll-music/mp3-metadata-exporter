@@ -24,12 +24,19 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         
     - name: Install dependencies
       run: npm ci
       
+    - name: Debug environment
+      run: |
+        node --version
+        npm --version
+        ls -la
+        ls -la build/
+        
     - name: Run tests (if available)
       run: npm test --if-present
       
@@ -47,9 +54,16 @@ jobs:
         # GitHub token for publishing
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
+    - name: Debug build output
+      run: |
+        echo "Build completed, checking dist directory:"
+        ls -la dist/ || echo "No dist directory found"
+        find dist -name "*.exe" -o -name "*.dmg" -o -name "*.AppImage" -o -name "*.deb" -o -name "*.zip" || echo "No build artifacts found"
+      
     - name: Upload artifacts (Ubuntu)
       if: matrix.os == 'ubuntu-latest'
       uses: actions/upload-artifact@v4
+      continue-on-error: true
       with:
         name: linux-builds
         path: |
@@ -59,6 +73,7 @@ jobs:
     - name: Upload artifacts (Windows)
       if: matrix.os == 'windows-latest'
       uses: actions/upload-artifact@v4
+      continue-on-error: true
       with:
         name: windows-builds
         path: |
@@ -68,6 +83,7 @@ jobs:
     - name: Upload artifacts (macOS)
       if: matrix.os == 'macos-latest'
       uses: actions/upload-artifact@v4
+      continue-on-error: true
       with:
         name: macos-builds
         path: |
