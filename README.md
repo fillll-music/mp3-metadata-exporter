@@ -87,14 +87,13 @@ The application extracts the following ID3 tag information:
 ```json
 [
   {
-    "path": "song.mp3",
-    "title": "Song Title",
-    "artist": "Artist Name",
-    "album": "Album Name",
-    "genre": ["Pop", "Rock"],
-    "year": 2024,
-    "track": 1,
-    "duration": 180.5
+    "path":     "Baby Billy Freeman - There'll Come a Payday (Live at Zion's Landing) - There'll Come a Payday.mp3",
+    "title":    "There'll Come a Payday",
+    "artist":   "Baby Billy Freeman",
+    "album":    "There'll Come a Payday (Live at Zion's Landing)",
+    "genre":    ["Church", "Gospel"],
+    "year":     2023,
+    "duration": 127
   }
 ]
 ```
