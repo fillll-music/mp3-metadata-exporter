@@ -56,15 +56,7 @@
       "icon": "build/icon-win.png",
       "requestedExecutionLevel": "asInvoker"
     },
-    "mac": {
-      "target": ["dmg", "zip"],
-      "icon": "build/icon.icns",
-      "category": "public.app-category.music",
-      "hardenedRuntime": true,
-      "gatekeeperAssess": false,
-      "entitlements": null,
-      "entitlementsInherit": null
-    },
+
     "linux": {
       "target": ["AppImage", "deb"],
       "icon": "build/icon-linux.png",
