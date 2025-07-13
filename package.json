@@ -36,13 +36,18 @@
       "buildResources": "build"
     },
     "files": [
-      "**/*"
+      "main.js",
+      "renderer.js",
+      "index.html",
+      "help.html",
+      "package.json",
+      "node_modules/**/*"
     ],
     "extraMetadata": {
       "main": "main.js"
     },
     "compression": "maximum",
-    "asar": false,
+    "asar": true,
     "win": {
       "target": [
         "nsis",
@@ -55,7 +60,10 @@
       "target": ["dmg", "zip"],
       "icon": "build/icon.icns",
       "category": "public.app-category.music",
-      "hardenedRuntime": true
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": null,
+      "entitlementsInherit": null
     },
     "linux": {
       "target": ["AppImage", "deb"],
